@@ -1,2 +1,2 @@
-# latentspace
-Build an understanding module that extracts latent traits and behavioral indicators from a sample text. 
+# Latent-Trait Understanding and Scenario-Based Action Recommendation System
+We are developing a two-phase system to extract latent behavioral traits from text and generate personalized, context-aware recommendations. The system is designed to analyze user narratives—such as scam reports, interviews, and interaction logs—to identify psychological, relational, and contextual cues and translate them into actionable guidance. 
