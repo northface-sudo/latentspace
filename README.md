@@ -1,28 +1,85 @@
-# Latent-Trait Understanding and Scenario-Based Action Recommendation System
-We are developing a two-phase system to extract latent behavioral traits from text and generate personalized, context-aware recommendations. The system is designed to analyze user narratives—such as scam reports, interviews, and interaction logs—to identify psychological, relational, and contextual cues and translate them into actionable guidance. 
-    
-## System Architecture Defined  
-    
-    Phase 1: Understanding Layer 
-    Extracts latent traits and behavioral indicators using models like SBERT, Instructor-XL, E5-Mistral, and GTE-Multilingual for semantic understanding across languages. 
-    Employs LLaMA 3 and Qwen 2 for summarization and reasoning. 
-    Integrates tools such as LIWC and Big Five personality models to uncover cognitive and emotional patterns. 
-    
-    Phase 2: Recommendation Layer 
-    Evaluating NCF, FAISS, and LightGCN for personalized action mapping. 
-    Early concepts include legal guidance, support strategies, and a “buddy consortium” model that aggregates multi-perspective advice.
+# User Documentation Manual for Latent-Trait Understanding and Scenario-Based Action Recommendation System
 
-## Challenges 
+## Overview
 
-    High variability in user scenarios complicates precise action mapping. 
-    Aligning multilingual embeddings with psychological models requires careful calibration. 
-    Optimal recommendation strategy (retrieval, collaborative, graph-based, or hybrid) is still under evaluation. 
+The Latent-Trait Understanding and Scenario-Based Action Recommendation System is an innovative project aimed at understanding behavioral traits and providing personalized recommendations based on user narratives. By utilizing advanced natural language processing (NLP) models, this system extracts critical psychological and contextual insights, translating them into actionable advice for users in various scenarios, including scam reports and interviews.
 
-# Next Steps 
+## System Architecture
+1. Phase 1: Understanding Layer
 
-    Prototype the understanding module using SBERT/GTE with LIWC and Big Five outputs. 
-    Test multilingual alignment for personality cue extraction. 
-    Build a sandbox to compare NCF, LightGCN, and FAISS on synthetic data. 
-    Explore the “buddy consortium” framework. 
-    Begin causal modeling with CausalNex/DoWhy. 
-    Conduct small-scale evaluations to validate trait-pattern-action mappings. 
+The Understanding Layer is responsible for extracting latent traits and behavioral indicators from user narratives. The following technologies and models are employed in this phase:
+
+    Semantic Understanding:
+        SBERT: Used for embedding sentence representations that capture contextual meaning.
+        Instructor-XL: Enhances comprehension of user narratives.
+        E5-Mistral: A versatile model for multilingual processing.
+        GTE-Multilingual: Facilitates understanding across different languages.
+
+    Summarization and Reasoning:
+        LLaMA 3 and Qwen 2: These models summarize user input and assist in reasoning processes, generating concise and actionable summaries.
+
+    Cognitive and Emotional Pattern Analysis:
+        LIWC (Linguistic Inquiry and Word Count): Analyzes emotional, cognitive, and structural components of text.
+        Big Five Personality Models: Identifies user personality traits based on narrative content.
+
+2. Phase 2: Recommendation Layer
+
+The Recommendation Layer utilizes various algorithms to create personalized action plans:
+
+    Algorithm Evaluation:
+        NCF (Neural Collaborative Filtering): Maps users to potential actions based on behavioral data.
+        FAISS (Facebook AI Similarity Search): Facilitates efficient similarity search for user actions and preferences.
+        LightGCN (Light Graph Convolutional Network): Improves recommendation accuracy by leveraging user-item interaction graphs.
+
+    Conceptual Framework:
+        Legal Guidance: Provides relevant legal advice tailored to the user's situation.
+        Support Strategies: Suggests actionable support mechanisms and pathways for users.
+        Buddy Consortium Model: Aggregates advice from multiple perspectives, encouraging collaboration and diverse input in decision-making.
+
+## Usage Instructions
+Setting Up the System
+
+    Installation:
+        Clone the repository from the project’s GitHub page.
+        Install the required dependencies by running:
+
+bash
+
+        pip install -r requirements.txt
+
+    Prepping Data:
+        Prepare user narrative data in a JSON format. Each entry should include fields for text, context, and any relevant metadata (e.g., user ID, timestamp).
+
+    Configuring the Models:
+        Modify the configuration files to set paths for the models (e.g., SBERT, LLaMA).
+        Ensure that the necessary model files are downloaded and accessible to the project.
+
+Running the System
+
+    Launch Phase 1 (Understanding Layer):
+        Execute the following command:
+
+bash
+
+    python run_understanding.py --data_path ./data/narratives.json
+
+    Monitor the console for outputs indicating the extraction of latent traits and behavioral indicators.
+
+Launch Phase 2 (Recommendation Layer):
+
+    After phase 1 is complete, run:
+
+bash
+
+        python run_recommendation.py --input_path ./output/traits.json
+
+        Review the generated recommendations, which will be saved in the specified output directory.
+
+Accessing Results
+
+    The results, including extracted traits and recommendations, will be found in the designated output files (in JSON or CSV format).
+    Visual representations (if applicable) of the data can be generated by invoking built-in data visualization scripts.
+
+## Conclusion
+
+This documentation provides a comprehensive guide for students and researchers interested in leveraging the Latent-Trait Understanding and Scenario-Based Action Recommendation System. By following the instructions outlined here, users can set up the system and explore its capabilities in detail. For additional questions or support, please refer to the project’s issue tracker on GitHub or contact the project leads directly.
